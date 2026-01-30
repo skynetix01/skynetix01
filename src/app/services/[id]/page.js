@@ -74,38 +74,84 @@ const servicesData = {
 };
 
 export default function ServiceDetail() {
-  const params = useParams();
+  const { id } = useParams();
 
   const service = useMemo(() => {
-    if (!params?.id) return null;
-    return servicesData[params.id];
-  }, [params]);
+    if (!id) return null;
+    return servicesData[id];
+  }, [id]);
 
   if (!service) {
     return (
-      <div style={{ padding: '4rem', textAlign: 'center' }}>
-        <h1>Loading...</h1>
+      <div className={styles.serviceDetailPage}>
+        <p style={{ textAlign: 'center', padding: '4rem' }}>Loading...</p>
       </div>
     );
   }
 
   return (
     <div className={styles.serviceDetailPage}>
-      <h1>{service.title}</h1>
-      <p>{service.subtitle}</p>
 
-      {service.pricing.map((p, i) => (
-        <div key={i}>{p}</div>
-      ))}
-
-      {service.examples.map((ex, i) => (
-        <div key={i}>
-          <Image src={ex.src} alt={ex.caption} width={400} height={300} />
-          <p>{ex.caption}</p>
+      {/* ===== HERO ===== */}
+      <section className={styles.focusSection}>
+        <div className={styles.focusContent}>
+          <h1 className={styles.focusTitle}>{service.title}</h1>
+          <p className={styles.focusSubtitle}>{service.subtitle}</p>
         </div>
-      ))}
+      </section>
 
-      <ServiceRequestForm serviceTitle={service.title} />
+      {/* ===== PRICING ===== */}
+      <section className={styles.pricingSection}>
+        <div className={styles.pricingContainer}>
+          <h2 className={styles.sectionTitle}>Pricing</h2>
+          <div className={styles.pricingRow}>
+            {service.pricing.map((item, index) => (
+              <div key={index} className={styles.pricingItem}>
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== NOTE ===== */}
+      {service.note && (
+        <section className={styles.noteSection}>
+          <div className={styles.noteContainer}>
+            <p className={styles.noteText}>⚠️ {service.note}</p>
+          </div>
+        </section>
+      )}
+
+      {/* ===== EXAMPLES ===== */}
+      <section className={styles.examplesSection}>
+        <div className={styles.examplesContainer}>
+          <h2 className={styles.sectionTitle}>Examples of Our Work</h2>
+          <div className={styles.examplesGrid}>
+            {service.examples.map((example, index) => (
+              <div key={index} className={styles.exampleItem}>
+                <Image
+                  src={example.src}
+                  alt={example.caption}
+                  width={400}
+                  height={300}
+                  className={styles.exampleImage}
+                />
+                <p className={styles.exampleCaption}>{example.caption}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== REQUEST FORM ===== */}
+      <section className={styles.requestSection}>
+        <div className={styles.requestContainer}>
+          <h2 className={styles.sectionTitle}>Request This Service</h2>
+          <ServiceRequestForm serviceTitle={service.title} />
+        </div>
+      </section>
+
     </div>
   );
 }
