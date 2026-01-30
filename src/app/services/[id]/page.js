@@ -4,8 +4,8 @@ import styles from '../../../../styles/serviceDetail.module.css';
 import Image from 'next/image';
 import ServiceRequestForm from '../../../../components/ServiceRequestForm';
 import { useParams } from 'next/navigation';
+import { useMemo } from 'react';
 
-/* ================== DATA ================== */
 const servicesData = {
   'digital-marketing': {
     title: 'Digital Marketing Services',
@@ -23,7 +23,6 @@ const servicesData = {
       { src: '/assets/work/g19.png', caption: 'Food Promo Design' },
     ],
   },
-
   'website-development': {
     title: 'Website Development Services',
     subtitle: 'Building your digital presence with precision and creativity.',
@@ -40,7 +39,6 @@ const servicesData = {
       { src: '/assets/work/w3.png', caption: 'Skynetix Website' },
     ],
   },
-
   'graphic-designing': {
     title: 'Graphic Designing Services',
     subtitle: 'Creating visuals that define your brand’s identity.',
@@ -57,7 +55,6 @@ const servicesData = {
       { src: '/assets/work/g19.png', caption: 'Food Promo Design' },
     ],
   },
-
   'seo-services': {
     title: 'SEO Services',
     subtitle: 'Boosting your visibility on search engines.',
@@ -77,13 +74,17 @@ const servicesData = {
 };
 
 export default function ServiceDetail() {
-  const { id } = useParams();
-  const service = servicesData[id];
+  const params = useParams();
+
+  const service = useMemo(() => {
+    if (!params?.id) return null;
+    return servicesData[params.id];
+  }, [params]);
 
   if (!service) {
     return (
       <div style={{ padding: '4rem', textAlign: 'center' }}>
-        <h1>Service Not Found</h1>
+        <h1>Loading...</h1>
       </div>
     );
   }
@@ -104,7 +105,7 @@ export default function ServiceDetail() {
         </div>
       ))}
 
-      <ServiceRequestForm serviceTitle={service.pricing} />
+      <ServiceRequestForm serviceTitle={service.title} />
     </div>
   );
 }
