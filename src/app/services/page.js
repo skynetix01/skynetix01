@@ -1,9 +1,10 @@
-// app/services/page.jsx
+'use client';
+
 import styles from '../../../styles/Service.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export const servicesData = [
+const servicesData = [
   {
     id: 'digital-marketing',
     title: 'Digital Marketing Services',
@@ -44,16 +45,6 @@ export const servicesData = [
       'Improved search rankings',
     ],
   },
-  // {
-  //   id: 'social-media-management',
-  //   title: 'Social Media Management',
-  //   image: '/assets/service/smm.jpg',
-  //   features: [
-  //     'Content scheduling and posting',
-  //     'Audience engagement strategies',
-  //     'Analytics and growth tracking',
-  //   ],
-  // },
 ];
 
 export default function Services() {
@@ -107,7 +98,7 @@ export default function Services() {
         <div className={styles.ctaContent}>
           <h2 className={styles.ctaTitle}>Looking for Something Unique?</h2>
           <p className={styles.ctaText}>
-            Let’s craft a custom solution tailored to your vision.
+            Let's craft a custom solution tailored to your vision.
           </p>
           <Link href="/contact" className={styles.ctaButton}>
             Get in Touch
