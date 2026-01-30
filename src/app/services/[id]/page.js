@@ -148,7 +148,7 @@ export default function ServiceDetail() {
       <section className={styles.requestSection}>
         <div className={styles.requestContainer}>
           <h2 className={styles.sectionTitle}>Request This Service</h2>
-          <ServiceRequestForm serviceTitle={service.title} />
+          <ServiceRequestForm serviceTitle={service.pricing} />
         </div>
       </section>
 
