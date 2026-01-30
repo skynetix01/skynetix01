@@ -49,52 +49,53 @@
     animation: fadeInUp 0.8s ease 0.3s forwards;
   }
   
-  /* Info Section */
-  .infoSection {
-    padding: 6rem 2rem;
-  }
-  
-  .infoContainer {
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .sectionTitle {
-    font-size: 2.5rem;
-    color: #c5d3f0;
-    margin-bottom: 2rem;
-    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-    letter-spacing: 1px;
-    animation: fadeIn 0.6s ease forwards;
-  }
-  
-  .infoText {
-    font-size: 1.3rem;
-    line-height: 2;
-    color: #e4d7d7;
-    margin-bottom: 2rem;
-    animation: fadeInUp 0.6s ease 0.1s forwards;
-  }
-  
-  .subTitle {
-    font-size: 2rem;
-    color: #c5d3f0;
-    margin-bottom: 1.5rem;
-    animation: fadeIn 0.6s ease 0.2s forwards;
-  }
-  
-  .pricingText {
-    font-size: 1.2rem;
-    color: #e4d7d7;
-    line-height: 1.8;
-    animation: fadeInUp 0.6s ease 0.4s forwards;
-  }
-  
-  .pricingText strong {
-    color: #c5d3f0;
-  }
-  
+/* Info Section */
+.pricingSection {
+  padding: 4rem 2rem 6rem;
+}
+
+.pricingContainer {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pricingRow {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap; /* responsive */
+  margin-top: 2rem;
+}
+
+.pricingItem {
+  padding: 12px 20px;
+  border: 1px solid rgba(197, 211, 240, 0.3);
+  border-radius: 30px;
+  font-size: 1.1rem;
+  color: #e4d7d7;
+  background: rgba(255, 255, 255, 0.03);
+  white-space: nowrap;
+}
+.noteSection {
+  padding: 2rem;
+  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 4px solid #c5d3f0;
+}
+
+.noteContainer {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.noteText {
+  color: #e4d7d7;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+
   /* Examples Section */
   .examplesSection {
     padding: 6rem 2rem;
@@ -122,7 +123,7 @@
   .exampleImage {
     width: 100%;
     height: 250px;
-    object-fit: cover;
+    object-fit: fill;
     border-radius: 15px;
     margin-bottom: 1rem;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
@@ -168,6 +169,32 @@
     position: relative;
     width: 100%;
   }
+  /* Select input */
+.input {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Dropdown options */
+.input option {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Focus state */
+.input:focus {
+  outline: none;
+  border-color: #c5d3f0;
+}
+
+/* Fix for Windows / Chrome */
+select.input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
   
   .input,
   .textarea {

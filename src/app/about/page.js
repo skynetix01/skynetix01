@@ -74,7 +74,7 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className={`${styles.teamSection} ${styles.section}`}>
+      {/* <section className={`${styles.teamSection} ${styles.section}`}>
         <h2 className={styles.sectionTitle}>Our Team</h2>
         <div className={styles.teamGrid}>
           <div className={styles.teamCard}>
@@ -112,7 +112,7 @@ export default function About() {
             <p className={styles.teamRole}>CMO & Co-Founder</p>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

@@ -3,6 +3,25 @@
   font-family: 'Arial', sans-serif;
   color: #e4d7d7;
   background: #1a1a1a;
+  scroll-behavior: smooth;
+}
+
+/* Modern scrollbar styling */
+.home::-webkit-scrollbar {
+  width: 8px;
+}
+
+.home::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.home::-webkit-scrollbar-thumb {
+  background: linear-gradient(120deg, #c5d3f0, #e4d7d7);
+  border-radius: 4px;
+}
+
+.home::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(120deg, #e4d7d7, #c5d3f0);
 }
 
 /* Scroll Animation Base */
@@ -11,6 +30,7 @@
 .servicesSection,
 .whyChooseUsSection,
 .ourWorkSection,
+.appsSection,
 .contactSection {
   opacity: 0;
   transform: translateY(80px);
@@ -71,6 +91,21 @@
   color: #c5d3f0;
   text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
   transition: transform 0.6s ease, opacity 0.6s ease;
+  background: linear-gradient(120deg, #c5d3f0, #e4d7d7, #c5d3f0);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .mainSection.visible .mainTitle {
@@ -100,6 +135,23 @@
   cursor: pointer;
   box-shadow: 0 5px 20px rgba(197, 211, 240, 0.4);
   transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.ctaButton:hover::before {
+  left: 100%;
 }
 
 .ctaButton:hover {
@@ -570,10 +622,359 @@
   line-height: 1.6;
 }
 
-/* Rest of the styles (Our Work, Contact, Footer) remain unchanged */
-/* Our Work Section */
-/* Home.module.css */
-/* Other styles remain unchanged up to Our Work Section */
+/* Apps Section */
+.appsSection {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 20, 20, 0.9));
+  position: relative;
+  overflow: hidden;
+}
+
+.appsSection::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(197, 211, 240, 0.08) 0%, transparent 70%);
+  transform: rotate(-30deg);
+  z-index: 0;
+}
+
+.appsContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.appsSubtitle {
+  font-size: 1.3rem;
+  text-align: center;
+  color: #e4d7d7;
+  margin-bottom: 4rem;
+  opacity: 0.9;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.appsFlex {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  margin-bottom: 4rem;
+}
+
+.appCard {
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.85));
+  border-radius: 25px;
+  width:500px;
+  border: 1px solid #333;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.6s ease;
+  transform: translateY(80px);
+  opacity: 0;
+  position: relative;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+
+.appsSection.visible .appCard {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.appsSection .appCard:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.appsSection .appCard:nth-child(2) {
+  transition-delay: 0.3s;
+}
+
+.appsSection .appCard:nth-child(3) {
+  transition-delay: 0.5s;
+}
+
+.appCard:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(197, 211, 240, 0.2);
+  background: linear-gradient(145deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.9));
+}
+
+.appCard::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(197, 211, 240, 0.1) 0%, transparent 70%);
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.appCard:hover::after {
+  opacity: 1;
+}
+
+.appImageContainer {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+
+.appImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.6s ease;
+}
+
+.appCard:hover .appImage {
+  transform: scale(1.1);
+}
+
+.appStatus {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+}
+
+.statusBadge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.availablenow {
+  background: linear-gradient(120deg, #4ade80, #22c55e);
+  color: #000;
+}
+
+.comingsoon {
+  background: linear-gradient(120deg, #f59e0b, #d97706);
+  color: #000;
+}
+
+.indevelopment {
+  background: linear-gradient(120deg, #8b5cf6, #7c3aed);
+  color: #fff;
+}
+
+/* ============================
+   APPS SECTION (FIXED & CLEAN)
+=============================== */
+
+.appsSection {
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 20, 20, 0.9));
+  position: relative;
+  overflow: hidden;
+}
+
+.appsSection::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(197, 211, 240, 0.08) 0%, transparent 70%);
+  transform: rotate(-30deg);
+  z-index: 0;
+}
+
+.appsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Subtitle */
+.appsSubtitle {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #e4d7d7;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* Cards wrapper */
+.appsFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem; /* FIXED GAP */
+}
+
+/* Card */
+.appCard {
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.85));
+  border-radius: 25px;
+  width: 500px;
+  border: 1px solid #333;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.appCard:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(197, 211, 240, 0.2);
+}
+
+/* Image */
+.appImageContainer {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.appImage {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Content */
+.appDetails {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* Title row */
+.appHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.appTitle {
+  font-size: 1.7rem;
+  color: #c5d3f0;
+  margin: 0;
+}
+
+.appCategory {
+  background: rgba(197, 211, 240, 0.1);
+  color: #c5d3f0;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+}
+
+/* Description */
+.appDescription {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Highlights */
+.appHighlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.appHighlightItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  background: rgba(197, 211, 240, 0.05);
+}
+
+/* Feature tags */
+.appFeatures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.3rem 0 0.6rem;
+}
+
+.appFeatureTag {
+  background: rgba(197, 211, 240, 0.1);
+  color: #c5d3f0;
+  padding: 0.2rem 0.7rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+}
+
+/* Actions */
+.appActions {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.downloadButton,
+.learnMoreButton,
+.notifyButton {
+  flex: 1;
+  padding: 0.9rem 1.2rem;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+}
+
+/* Buttons */
+.downloadButton {
+  background: linear-gradient(120deg, #4ade80, #22c55e);
+  color: #000;
+}
+
+.notifyButton {
+  background: linear-gradient(120deg, #f59e0b, #d97706);
+  color: #000;
+}
+
+.learnMoreButton {
+  background: linear-gradient(120deg, #c5d3f0, #e4d7d7);
+  color: #1a1a1a;
+}
+
+/* Hover effects */
+.downloadButton:hover,
+.notifyButton:hover,
+.learnMoreButton:hover {
+  transform: translateY(-3px);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .appCard {
+    width: 100%;
+  }
+
+  .appActions {
+    flex-direction: column;
+  }
+}
 
 /* Our Work Section */
 .ourWorkSection {
@@ -1051,5 +1452,574 @@ transform: scale(1.05);
 box-shadow: 0 8px 20px rgba(197, 211, 240, 0.5);
 }
 .learnMore{
-  z-index: 100;;
+  z-index: 100;
+}
+
+/* Responsive Design Improvements */
+@media (max-width: 768px) {
+  .mainTitle {
+    font-size: 2.5rem;
+  }
+  
+  .mainSubtitle {
+    font-size: 1.3rem;
+  }
+  
+  .sectionTitles {
+    font-size: 2.2rem;
+  }
+  
+  .appsFlex {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .appCard {
+    max-width: 100%;
+  }
+  
+  .appActions {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .downloadButton,
+  .notifyButton,
+  .learnMoreButton {
+    width: 100%;
+  }
+  
+  .contactContainer {
+    flex-direction: column;
+  }
+  
+  .contactFormSide,
+  .contactDetailsSide {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainTitle {
+    font-size: 2rem;
+  }
+  
+  .mainSubtitle {
+    font-size: 1.1rem;
+  }
+  
+  .sectionTitles {
+    font-size: 1.8rem;
+  }
+  
+  .appDetails {
+    padding: 1.5rem;
+  }
+  
+  .appTitle {
+    font-size: 1.5rem;
+  }
+  
+  .appsCtaButton {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* App Detail Page Styles */
+.appDetailPage {
+  font-family: 'Arial', sans-serif;
+  color: #e4d7d7;
+  background: #1a1a1a;
+  min-height: 100vh;
+}
+
+.appHero {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 20, 20, 0.9));
+  position: relative;
+  overflow: hidden;
+}
+
+.appHero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(197, 211, 240, 0.1) 0%, transparent 70%);
+  transform: rotate(30deg);
+  z-index: 0;
+}
+
+.appHeroContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.appHeroContent {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.appHeroImage {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.heroAppImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.appHeroText {
+  flex: 1 1 500px;
+}
+
+.appHeroTitle {
+  font-size: 3.5rem;
+  color: #c5d3f0;
+  margin-bottom: 1rem;
+  background: linear-gradient(120deg, #c5d3f0, #e4d7d7, #c5d3f0);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+.appHeroSubtitle {
+  font-size: 1.4rem;
+  color: #e4d7d7;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.appHeroStats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.heroStat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(197, 211, 240, 0.1);
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  color: #c5d3f0;
+  font-weight: 600;
+}
+
+.heroStatIcon {
+  font-size: 1.2rem;
+}
+
+.appHeroActions {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.downloadButton {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 2.5rem;
+  background: linear-gradient(120deg, #4ade80, #22c55e);
+  color: #000;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+}
+
+.downloadButton:hover {
+  background: linear-gradient(120deg, #22c55e, #16a34a);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(34, 197, 94, 0.5);
+}
+
+.buttonIcon {
+  font-size: 1.1rem;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.2rem 2rem;
+  background: linear-gradient(120deg, #c5d3f0, #e4d7d7);
+  color: #1a1a1a;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.4s ease;
+}
+
+.backButton:hover {
+  background: linear-gradient(120deg, #e4d7d7, #c5d3f0);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(197, 211, 240, 0.4);
+}
+
+.appFeatures {
+  padding: 6rem 2rem;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.appFeaturesContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.featureCard {
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.85));
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid #333;
+  text-align: center;
+  transition: all 0.6s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.featureCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(197, 211, 240, 0.2);
+}
+
+.featureIcon {
+  font-size: 3rem;
+  color: #c5d3f0;
+  margin-bottom: 1.5rem;
+  transition: all 0.4s ease;
+}
+
+.featureCard:hover .featureIcon {
+  color: #e4d7d7;
+  transform: scale(1.1);
+}
+
+.featureCard h3 {
+  font-size: 1.5rem;
+  color: #c5d3f0;
+  margin-bottom: 1rem;
+  transition: color 0.4s ease;
+}
+
+.featureCard:hover h3 {
+  color: #e4d7d7;
+}
+
+.featureCard p {
+  color: #e4d7d7;
+  line-height: 1.6;
+}
+
+.appScreenshots {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 20, 20, 0.9));
+}
+
+.appScreenshotsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.screenshotsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.screenshotCard {
+  text-align: center;
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.85));
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid #333;
+  transition: all 0.6s ease;
+}
+
+.screenshotCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(197, 211, 240, 0.2);
+}
+
+.screenshotImage {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}
+
+.screenshotCard p {
+  color: #c5d3f0;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.appDownload {
+  padding: 6rem 2rem;
+  background: rgba(0, 0, 0, 0.9);
+  text-align: center;
+}
+
+.appDownloadContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.downloadSubtitle {
+  font-size: 1.3rem;
+  color: #e4d7d7;
+  margin-bottom: 3rem;
+  opacity: 0.9;
+}
+
+.downloadActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.downloadButtonLarge {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 3rem;
+  background: linear-gradient(120deg, #4ade80, #22c55e);
+  color: #000;
+  border: none;
+  border-radius: 35px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
+}
+
+.downloadButtonLarge:hover {
+  background: linear-gradient(120deg, #22c55e, #16a34a);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(34, 197, 94, 0.6);
+}
+
+.downloadNote {
+  color: #e4d7d7;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+/* Responsive Design for App Detail Page */
+@media (max-width: 768px) {
+  .appHeroContent {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .appHeroTitle {
+    font-size: 2.5rem;
+  }
+  
+  .appHeroStats {
+    justify-content: center;
+  }
+  
+  .appHeroActions {
+    justify-content: center;
+  }
+  
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .screenshotsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Notification Modal Styles */
+.notificationModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.notificationContent {
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.85));
+  padding: 3rem;
+  border-radius: 25px;
+  border: 1px solid #333;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #e4d7d7;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.closeButton:hover {
+  color: #c5d3f0;
+}
+
+.notificationContent h3 {
+  color: #c5d3f0;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.notificationContent p {
+  color: #e4d7d7;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.notificationForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.notificationInput {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid #333;
+  border-radius: 15px;
+  color: #e4d7d7;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.notificationInput:focus {
+  border-color: #c5d3f0;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 15px rgba(197, 211, 240, 0.2);
+  outline: none;
+}
+
+.notificationActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.notifySubmitButton {
+  padding: 1rem 2rem;
+  background: linear-gradient(120deg, #4ade80, #22c55e);
+  color: #000;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 5px 15px rgba(34, 197, 94, 0.3);
+}
+
+.notifySubmitButton:hover:not(:disabled) {
+  background: linear-gradient(120deg, #22c55e, #16a34a);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+}
+
+.notifySubmitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cancelButton {
+  padding: 1rem 2rem;
+  background: linear-gradient(120deg, #c5d3f0, #e4d7d7);
+  color: #1a1a1a;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.cancelButton:hover {
+  background: linear-gradient(120deg, #e4d7d7, #c5d3f0);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(197, 211, 240, 0.3);
+}
+
+.successIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Responsive Design for Notification Modal */
+@media (max-width: 768px) {
+  .notificationContent {
+    padding: 2rem;
+    margin: 1rem;
+  }
+  
+  .notificationActions {
+    flex-direction: column;
+  }
+  
+  .notifySubmitButton,
+  .cancelButton {
+    width: 100%;
+  }
 }

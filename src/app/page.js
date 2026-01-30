@@ -1,6 +1,7 @@
 import styles from '../../styles/Home.module.css';
 import { Services } from '../../components/serviceDetail';
 import { Projects } from '../../components/projectData';
+import { Apps } from '../../components/appData';
 import { ClientOnlyVideo } from '../../components/clientOnlyVideo';
 import { FaEnvelope, FaPhone, FaTwitter, FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
 import Link from 'next/link';
@@ -113,6 +114,17 @@ export default function Home() {
           <Link href="/our-work">
             <p className={styles.seeMoreLink}>See More Our Works</p>
           </Link>
+        </div>
+      </section>
+
+      {/* Apps Section */}
+      <section className={`${styles.appsSection} ${styles.visible}`}>
+        <div className={styles.appsContainer}>
+          <h2 className={styles.sectionTitles}>Our Apps</h2>
+          <p className={styles.appsSubtitle}>
+            Discover our innovative mobile and web applications designed to enhance your digital experience
+          </p>
+          <Apps />
         </div>
       </section>
 

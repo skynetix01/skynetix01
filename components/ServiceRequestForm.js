@@ -4,7 +4,13 @@ import { useState } from 'react';
 import styles from '../styles/serviceDetail.module.css';
 
 export default function ServiceRequestForm({ serviceTitle }) {
+
   const [status, setStatus] = useState(null);
+  const pricingOptions = serviceTitle
+  ?.split('•')
+  .map(item => item.trim())
+  .filter(item => item.length > 0);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -75,19 +81,31 @@ export default function ServiceRequestForm({ serviceTitle }) {
           Email (Optional)
         </label>
       </div>
-      <div className={styles.formGroup}>
-        <input
-          type="text"
-          id="requestService"
-          name="service"
-          value={serviceTitle}
-          className={styles.input}
-          readOnly
-        />
-        <label htmlFor="requestService" className={styles.formLabel}>
-          Service
-        </label>
-      </div>
+    <div className={styles.formGroup}>
+  <select
+    id="requestService"
+    name="service"
+    className={styles.input}
+    defaultValue=""
+    required
+  >
+    <option value="" disabled>
+      Select a Plan
+    </option>
+
+    {pricingOptions.map((option, index) => (
+      <option key={index} value={option}>
+        {option}
+      </option>
+    ))}
+  </select>
+
+  <label htmlFor="requestService" className={styles.formLabel}>
+    Select Plan
+  </label>
+</div>
+
+
       <div className={styles.formGroup}>
         <input
           type="text"

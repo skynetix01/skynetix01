@@ -44,36 +44,16 @@ export const servicesData = [
       'Improved search rankings',
     ],
   },
-  {
-    id: 'social-media-management',
-    title: 'Social Media Management',
-    image: '/assets/service/smm.jpg',
-    features: [
-      'Content scheduling and posting',
-      'Audience engagement strategies',
-      'Analytics and growth tracking',
-    ],
-  },
-  {
-    id: 'content-creation',
-    title: 'Content Creation Services',
-    image: '/assets/service/content-creation.jpg',
-    features: [
-      'Blog posts and articles',
-      'Video and infographic content',
-      'SEO-optimized copywriting',
-    ],
-  },
-  {
-    id: 'ui-ux-design',
-    title: 'UI/UX Design',
-    image: '/assets/service/ui-ux.jpg',
-    features: [
-      'User-centered, intuitive interfaces',
-      'Wireframes and prototypes with Figma',
-      'Enhanced engagement and usability',
-    ],
-  },
+  // {
+  //   id: 'social-media-management',
+  //   title: 'Social Media Management',
+  //   image: '/assets/service/smm.jpg',
+  //   features: [
+  //     'Content scheduling and posting',
+  //     'Audience engagement strategies',
+  //     'Analytics and growth tracking',
+  //   ],
+  // },
 ];
 
 export default function Services() {
