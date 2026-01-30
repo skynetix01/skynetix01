@@ -296,3 +296,133 @@ select.input {
       transform: translateY(0);
     }
   }
+  /* ===============================
+   RESPONSIVE FIXES
+================================ */
+
+/* Large tablets & small laptops */
+@media (max-width: 1024px) {
+  .focusTitle {
+    font-size: 3.2rem;
+  }
+
+  .focusSubtitle {
+    font-size: 1.4rem;
+  }
+
+  .examplesGrid {
+    gap: 2rem;
+  }
+
+  .requestContainer {
+    padding: 2.5rem;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .focusSection {
+    padding: 4rem 1.5rem;
+  }
+
+  .focusTitle {
+    font-size: 2.6rem;
+  }
+
+  .focusSubtitle {
+    font-size: 1.3rem;
+  }
+
+  .pricingRow {
+    gap: 1rem;
+  }
+
+  .pricingItem {
+    font-size: 1rem;
+    padding: 10px 16px;
+  }
+
+  .examplesSection {
+    padding: 4rem 1.5rem;
+  }
+
+  .exampleImage {
+    height: 220px;
+  }
+
+  .requestSection {
+    padding: 4rem 1.5rem;
+  }
+
+  .requestContainer {
+    padding: 2rem;
+  }
+
+  .input,
+  .textarea {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .submitButton {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .focusTitle {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .focusSubtitle {
+    font-size: 1.1rem;
+  }
+
+  .pricingRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pricingItem {
+    text-align: center;
+    white-space: normal;
+  }
+
+  .examplesGrid {
+    gap: 1.5rem;
+  }
+
+  .exampleItem {
+    flex: 1 1 100%;
+  }
+
+  .exampleImage {
+    height: 200px;
+  }
+
+  .requestContainer {
+    padding: 1.5rem;
+  }
+
+  .formLabel {
+    font-size: 0.8rem;
+  }
+
+  .submitButton {
+    width: 100%;
+  }
+}
+
+/* Very small devices */
+@media (max-width: 360px) {
+  .focusTitle {
+    font-size: 1.7rem;
+  }
+
+  .focusSubtitle {
+    font-size: 1rem;
+  }
+}
