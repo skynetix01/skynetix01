@@ -86,24 +86,13 @@ export const servicesData = {
   },
 };
 
-/* ============ STATIC PARAMS (VERY IMPORTANT) ============ */
-export async function generateStaticParams() {
-  return Object.keys(servicesData).map((id) => ({ id }));
-}
+
 
 /* ================== PAGE ================== */
 export default function ServiceDetail({ params }) {
-  const service = servicesData[params];
-
-  /* 🛑 GUARD: prevents server crash */
-  if (!service) {
-    return (
-      <div style={{ padding: 50, textAlign: 'center' }}>
-        <h1>404 – Service Not Found</h1>
-        <p>Invalid service: {params.id}</p>
-      </div>
-    );
-  }
+  const { id } = params;
+  // Find by id in array (exact match needed)
+  const service = servicesData.find(s => s.id === id) || servicesData[1]; //
 
   return (
     <div className={styles.serviceDetailPage}>
