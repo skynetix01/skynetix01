@@ -86,13 +86,22 @@ export const servicesData = {
   },
 };
 
-
-
 /* ================== PAGE ================== */
 export default function ServiceDetail({ params }) {
   const { id } = params;
-  // Find by id in array (exact match needed)
-  const service = servicesData.find(s => s.id === id) || servicesData[1]; //
+
+  // ✅ Correct way (object access)
+  const service = servicesData[id];
+
+  // Optional: handle invalid routes
+  if (!service) {
+    return (
+      <div style={{ padding: '4rem', textAlign: 'center' }}>
+        <h1>Service Not Found</h1>
+        <p>The requested service does not exist.</p>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.serviceDetailPage}>
