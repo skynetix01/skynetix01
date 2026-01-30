@@ -93,7 +93,7 @@ import ServiceRequestForm from '../../../../components/ServiceRequestForm';
 
 export default function ServiceDetail({ params }) {
   const { id } = params;
-  const service = servicesData[id] || servicesData['web-dev']; // Fallback to Web Development
+  const service = servicesData[id];
 
   return (
     <div className={styles.serviceDetailPage}>
