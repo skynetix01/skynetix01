@@ -6,24 +6,24 @@
   
   /* Spotlight Section */
   .spotlightSection {
-    padding: 6rem 2rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    background: #000000;
-  }
-  
-  .spotlightSection::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(197, 211, 240, 0.05), rgba(228, 215, 215, 0.05), transparent);
-    animation: wave 8s infinite ease-in-out;
-    z-index: 0;
-  }
+  padding: 10rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.85));
+}
+
+.spotlightSection::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 160%;
+  height: 160%;
+  background: radial-gradient(circle, rgba(197, 211, 240, 0.15) 0%, transparent 60%);
+  transform: rotate(15deg);
+  z-index: 0;
+}
   
   @keyframes wave {
     0% { transform: translateX(-100%) skew(20deg); }
