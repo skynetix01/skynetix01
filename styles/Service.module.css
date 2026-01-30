@@ -8,24 +8,24 @@
   
   /* Intro Section */
   .introSection {
-    padding: 4rem 2rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    background: #000000;
-  }
-  
-  .introSection::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(197, 211, 240, 0.05) 0%, transparent 70%);
-    animation: pulse 6s infinite ease-in-out;
-    z-index: 0;
-  }
+  padding: 10rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.85));
+}
+
+.introSection::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 160%;
+  height: 160%;
+  background: radial-gradient(circle, rgba(197, 211, 240, 0.15) 0%, transparent 60%);
+  transform: rotate(15deg);
+  z-index: 0;
+}
   
   @keyframes pulse {
     0% { transform: scale(1); opacity: 0.5; }
