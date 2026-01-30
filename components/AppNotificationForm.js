@@ -30,7 +30,7 @@ export const AppNotificationForm = ({ appName, onClose }) => {
         <div className={styles.notificationContent}>
           <div className={styles.successIcon}>✅</div>
           <h3>Thank You!</h3>
-          <p>We'll notify you when {appName} is available for download.</p>
+           <p>We&apos;ll notify you when {appName} is available for download.</p>
         </div>
       </div>
     );
