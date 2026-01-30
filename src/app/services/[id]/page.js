@@ -93,7 +93,7 @@ export async function generateStaticParams() {
 
 /* ================== PAGE ================== */
 export default function ServiceDetail({ params }) {
-  const service = servicesData[params.id];
+  const service = servicesData[params];
 
   /* 🛑 GUARD: prevents server crash */
   if (!service) {
