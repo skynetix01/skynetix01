@@ -28,17 +28,17 @@ export const servicesData = [
     ],
   },
   {
-    id: 'ui-ux-design',
-    name: 'ui-ux-design',
-    icon: '🎨',
-    title: 'UI/UX Design',
-    description: [
-      'User research and wireframing',
-      'High-fidelity prototypes',
-      'Intuitive navigation design',
-      'Brand-consistent visuals',
-    ],
-  },
+  id: 'graphic-design',
+  name: 'graphic-design',
+  icon: '🖌️',
+  title: 'Graphic Design',
+  description: [
+    'Logo and brand identity design',
+    'Social media creatives & banners',
+    'Marketing posters and flyers',
+    'Business cards, brochures & print designs',
+  ],
+}
 ];
 
 export const Services = () => {
