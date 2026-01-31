@@ -28,7 +28,7 @@ export const servicesData = [
     ],
   },
   {
-  id: 'graphic-design',
+  id: 'graphic-designing',
   name: 'graphic-design',
   icon: '🖌️',
   title: 'Graphic Design',
