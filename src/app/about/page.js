@@ -20,7 +20,7 @@ export default function About() {
           <h2 className={styles.sectionTitle}>Who We Are</h2>
           <div className={styles.missionText}>
             <p>
-              Founded in 2018, Skynetix is a trailblazing technology company dedicated to transforming the digital landscape. Our mission is to empower businesses and individuals with innovative solutions that seamlessly blend advanced technology with human-centric design. From AI-driven applications to immersive digital experiences, we are committed to pushing the boundaries of what’s possible.
+              Founded in 2025, Skynetix is a trailblazing technology company dedicated to transforming the digital landscape. Our mission is to empower businesses and individuals with innovative solutions that seamlessly blend advanced technology with human-centric design. From AI-driven applications to immersive digital experiences, we are committed to pushing the boundaries of what’s possible.
             </p>
             <p>
               At Skynetix, our diverse team of engineers, designers, and strategists collaborates to deliver solutions that are not only functional but also inspiring. We take pride in our agile approach, which allows us to adapt to the ever-evolving tech industry while maintaining a focus on quality and impact. Our work spans industries, from healthcare and finance to entertainment and education, making a meaningful difference for our clients and their communities.
