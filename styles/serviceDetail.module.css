@@ -1,298 +1,358 @@
 .serviceDetailPage {
-    background: #000000;
-    color: #e4d7d7;
-    min-height: 100vh;
-  }
-  
-  /* Focus Section */
-  .focusSection {
-    padding: 6rem 2rem;
-    text-align: center;
-    background: #000000;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .focusSection::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(197, 211, 240, 0.05), transparent 50%);
-    transform: skewY(-5deg);
-    z-index: 0;
-  }
-  
-  .focusContent {
-    position: relative;
-    z-index: 1;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  .focusTitle {
-    font-size: 4.5rem;
-    background: linear-gradient(90deg, #c5d3f0, #e4d7d7);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 5px 15px rgba(197, 211, 240, 0.2);
-    animation: fadeInUp 0.8s ease forwards;
-  }
-  
-  .focusSubtitle {
-    font-size: 1.8rem;
-    color: #e4d7d7;
-    animation: fadeInUp 0.8s ease 0.3s forwards;
-  }
-  
-/* Info Section */
-.pricingSection {
-  padding: 4rem 2rem 6rem;
+  background: #000000;
+  color: #e4d7d7;
+  min-height: 100vh;
 }
 
-.pricingContainer {
-  max-width: 1100px;
+.focusSection {
+  padding: 5rem 1.5rem 3rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.85));
+  border-bottom: 1px solid rgba(197, 211, 240, 0.2);
+}
+
+.focusContent {
+  max-width: 1000px;
   margin: 0 auto;
+}
+
+.focusTitle {
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  color: #c5d3f0;
+  margin: 0 0 0.75rem;
+}
+
+.focusSubtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #e4d7d7;
+  margin: 0;
+}
+
+.sectionTitle {
+  font-size: clamp(1.35rem, 2.3vw, 2rem);
+  color: #c5d3f0;
+  margin: 0 0 1.2rem;
+}
+
+.overviewSection,
+.comparisonSection,
+.comboSection,
+.examplesSection,
+.requestSection {
+  padding: 2.5rem 1.25rem;
+}
+
+.overviewContainer,
+.comparisonContainer,
+.comboContainer,
+.examplesContainer,
+.requestContainer {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.overviewText {
+  margin: 0;
+  line-height: 1.8;
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.85));
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  color: #e4d7d7;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.overviewText:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 10px 24px rgba(197, 211, 240, 0.2);
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(197, 211, 240, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.typeTablesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.typeTableCard {
+  border: 1px solid rgba(197, 211, 240, 0.28);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.8rem;
+}
+
+.typeTableTitle {
+  margin: 0 0 0.7rem;
+  color: #c5d3f0;
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+
+.comparisonTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 680px;
+}
+
+.comparisonTable th {
+  background: #0a76e8;
+  color: #ffffff;
+  text-align: left;
+  padding: 0.75rem;
+  font-weight: 600;
+  border: 1px solid #0a5fd8;
+}
+
+.comparisonTable td {
+  border: 1px solid rgba(197, 211, 240, 0.22);
+  padding: 0.7rem 0.75rem;
+  color: #e4d7d7;
+  vertical-align: top;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.comparisonTable tbody tr:nth-child(even) td {
+  background: rgba(197, 211, 240, 0.06);
+}
+
+.comboGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.comboCard {
+  flex: 0 1 360px;
+  width: 360px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.85));
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 1rem;
+  position: relative;
+  box-sizing: border-box;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.comboCard:hover {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 10px 24px rgba(197, 211, 240, 0.22);
+}
+
+.recommendedBadge {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  background: #0a76e8;
+  color: #fff;
+  font-size: 0.75rem;
+  border-radius: 16px;
+  padding: 0.2rem 0.55rem;
+  font-weight: 600;
+}
+
+.comboTitle {
+  margin: 0 0 0.55rem;
+  color: #c5d3f0;
+  font-size: 1.1rem;
+}
+
+.comboLine {
+  margin: 0.15rem 0;
+  color: #e4d7d7;
+  font-weight: 500;
+}
+
+.comboListTitle {
+  margin: 0.75rem 0 0.35rem;
+  font-weight: 600;
+  color: #c5d3f0;
+}
+
+.comboList {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.comboList li {
+  margin-bottom: 0.28rem;
+}
+
+.comboBestFor {
+  margin: 0.75rem 0 0;
+  color: #e4d7d7;
+}
+
+.comboPriceBox {
+  margin-top: auto;
+  margin-bottom: 0;
+  padding: 0.65rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid #333;
+  background: rgba(197, 211, 240, 0.08);
+}
+
+.comboPriceTitle {
+  margin: 0 0 0.35rem;
+  color: #c5d3f0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.comboPriceLine {
+  margin: 0.12rem 0;
+  color: #e4d7d7;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.examplesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.exampleItem {
+  flex: 0 1 320px;
+  width: 320px;
+  min-height: 320px;
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.85));
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  transition: box-shadow 0.28s ease;
+}
+
+.exampleItem:hover {
+  box-shadow: 0 10px 24px rgba(197, 211, 240, 0.22);
+}
+
+.exampleImage {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.exampleCaption {
+  margin: 0.6rem 0 0;
+  color: #c5d3f0;
   text-align: center;
 }
 
-.pricingRow {
+.requestContainer {
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.85));
+  border: 1px solid #333;
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.requestContainer:hover {
+  box-shadow: 0 10px 24px rgba(197, 211, 240, 0.2);
+}
+
+.requestForm {
   display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap; /* responsive */
-  margin-top: 2rem;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.pricingItem {
-  padding: 12px 20px;
-  border: 1px solid rgba(197, 211, 240, 0.3);
-  border-radius: 30px;
-  font-size: 1.1rem;
+.formGroup {
+  position: relative;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 1rem 0.8rem 0.85rem;
+  border: 1px solid rgba(197, 211, 240, 0.45);
+  border-radius: 10px;
+  font-size: 0.98rem;
   color: #e4d7d7;
-  background: rgba(255, 255, 255, 0.03);
-  white-space: nowrap;
-}
-.noteSection {
-  padding: 2rem;
-  margin-top: 2rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-left: 4px solid #c5d3f0;
+  background: rgba(255, 255, 255, 0.04);
+  box-sizing: border-box;
 }
 
-.noteContainer {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.noteText {
-  color: #e4d7d7;
-  font-size: 1.1rem;
-  line-height: 1.7;
-}
-
-
-  /* Examples Section */
-  .examplesSection {
-    padding: 6rem 2rem;
-    background: linear-gradient(135deg, rgba(20, 20, 20, 0.9), rgba(40, 40, 40, 0.85));
-  }
-  
-  .examplesContainer {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .examplesGrid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2.5rem;
-    justify-content: center;
-  }
-  
-  .exampleItem {
-    flex: 1 1 350px;
-    animation: fadeInUp 0.6s ease forwards;
-  }
-  
-  .exampleImage {
-    width: 100%;
-    height: 250px;
-    object-fit: fill;
-    border-radius: 15px;
-    margin-bottom: 1rem;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.4s ease;
-  }
-  
-  .exampleItem:hover .exampleImage {
-    transform: scale(1.05);
-  }
-  
-  .exampleCaption {
-    font-size: 1.2rem;
-    color: #c5d3f0;
-    animation: fadeIn 0.6s ease forwards;
-  }
-  
-  /* Request Section */
-  .requestSection {
-    padding: 6rem 2rem;
-  }
-  
-  .requestContainer {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(40, 40, 40, 0.85));
-    padding: 3rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    animation: fadeInUp 0.8s ease forwards;
-  }
-  
-  .requestForm {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  
-  .formGroup {
-    position: relative;
-    width: 100%;
-  }
-  /* Select input */
-.input {
-  background-color: #000;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* Dropdown options */
-.input option {
-  background-color: #000;
-  color: #fff;
-}
-
-/* Focus state */
-.input:focus {
+.input:focus,
+.textarea:focus {
   outline: none;
-  border-color: #c5d3f0;
+  border-color: #e4d7d7;
+  box-shadow: 0 0 0 3px rgba(10, 118, 232, 0.2);
 }
 
-/* Fix for Windows / Chrome */
 select.input {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
 
-  
-  .input,
-  .textarea {
-    width: 100%;
-    padding: 1.3rem 0.5rem;
-    font-size: 1.1rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(197, 211, 240, 0.3);
-    border-radius: 12px;
-    color: #e4d7d7;
-    transition: all 0.4s ease;
-    box-sizing: border-box;
-    animation: fadeInUp 0.6s ease 0.1s forwards;
+.input option {
+  color: #e4d7d7;
+  background: #0f1523;
+}
+
+.textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.formLabel {
+  position: absolute;
+  top: -0.52rem;
+  left: 0.65rem;
+  background: #0f1523;
+  padding: 0 0.4rem;
+  color: #c5d3f0;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.submitButton {
+  padding: 0.85rem 1rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(120deg, #c5d3f0, #e4d7d7);
+  color: #000000;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.submitButton:hover {
+  background: linear-gradient(120deg, #e4d7d7, #c5d3f0);
+  box-shadow: 0 5px 15px rgba(197, 211, 240, 0.5);
+}
+
+.formStatus {
+  margin: 0;
+  color: #c5d3f0;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .focusSection {
+    padding-top: 4.2rem;
   }
-  
-  .input:focus,
-  .textarea:focus {
-    border-color: #c5d3f0;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 15px rgba(197, 211, 240, 0.4);
-    outline: none;
+
+  .requestContainer {
+    padding: 1rem;
   }
-  
-  .input[readonly] {
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(197, 211, 240, 0.5);
-  }
-  
-  .textarea {
-    min-height: 120px;
-    resize: vertical;
-  }
-  
-  .formLabel {
-    position: absolute;
-    top: -0.8rem;
-    left: 1rem;
-    font-size: 0.9rem;
-    color: #c5d3f0;
-    background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(40, 40, 40, 0.85));
-    padding: 0 0.5rem;
-    transition: all 0.4s ease;
-  }
-  
-  .input:focus + .formLabel,
-  .textarea:focus + .formLabel,
-  .input:not(:placeholder-shown) + .formLabel,
-  .textarea:not(:placeholder-shown) + .formLabel {
-    color: #e4d7d7;
-    transform: translateY(-0.3rem);
-  }
-  
-  .submitButton {
-    padding: 1.2rem 3rem;
-    font-size: 1.2rem;
-    background: linear-gradient(120deg, #c5d3f0, #e4d7d7);
-    border: none;
-    border-radius: 30px;
-    color: #000000;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-    animation: fadeIn 0.6s ease 0.3s forwards;
-  }
-  
-  .submitButton:hover {
-    background: linear-gradient(120deg, #e4d7d7, #c5d3f0);
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(197, 211, 240, 0.5);
-  }
-  
-  .formStatus {
-    margin-top: 1rem;
-    font-size: 1rem;
-    color: #c5d3f0;
-    text-align: center;
-    animation: fadeIn 0.6s ease forwards;
-  }
-  
-  /* Keyframe Animations */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+}

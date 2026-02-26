@@ -4,8 +4,8 @@ import { FaEnvelope, FaPhone, FaTwitter, FaLinkedin, FaGithub, FaInstagram } fro
 import ContactForm from '../../../components/ContactForm';
 
 export default function Contact() {
-  const emailAddress = process.env.NEXT_PUBLIC_EMAIL_ADDRESS || 'info@skynetix.com';
-  const contactNumber = process.env.NEXT_PUBLIC_CONTACT_NUMBER || '+1 (555) 123-4567';
+  const emailAddress = process.env.NEXT_PUBLIC_EMAIL_ADDRESS || 'contact@skynetix.in';
+  const contactNumber = process.env.NEXT_PUBLIC_CONTACT_NUMBER || '+91 7857082971';
   const linkdin = process.env.NEXT_PUBLIC_LINKDIN;
   const insta = process.env.NEXT_PUBLIC_INSTA;
   const facebook = process.env.NEXT_PUBLIC_FACEBOOK;
@@ -37,7 +37,7 @@ export default function Contact() {
                   <FaEnvelope className={styles.contactIcon} />
                   <div>
                     <span className={styles.contactLabel}>Email : </span>
-                    <a href="mailto:contact@skynetix.in" className={styles.contactLink}>
+                    <a href={`mailto:${emailAddress}`} className={styles.contactLink}>
                       {emailAddress}
                     </a>
                   </div>
@@ -46,7 +46,7 @@ export default function Contact() {
                   <FaPhone className={styles.contactIcon} />
                   <div>
                     <span className={styles.contactLabel}>Phone : </span>
-                    <a href="tel:+918603093450" className={styles.contactLink}>
+                    <a href={`tel:${contactNumber.replace(/\s+/g, '')}`} className={styles.contactLink}>
                       {contactNumber}
                     </a>
                   </div>

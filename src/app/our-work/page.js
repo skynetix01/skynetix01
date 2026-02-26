@@ -224,12 +224,20 @@ export default function OurWork() {
         <div className={styles.workGrid}>
           {Object.entries(workData).map(([categoryKey, projects]) => (
             <div key={categoryKey} className={styles.categoryGroup}>
-              <h2 className={styles.categoryTitle}>{categoryDisplayNames[categoryKey]}</h2>
-              <div className={styles.categoryGrid}>
+              <div className={styles.categoryHeader}>
+                <h2 className={styles.categoryTitle}>{categoryDisplayNames[categoryKey]}</h2>
+              </div>
+              <div
+                className={`${styles.categoryGrid} ${
+                  categoryKey === 'websiteDesign' ? styles.websiteGrid : styles.graphicGrid
+                }`}
+              >
                 {projects.map((project, index) => (
                   <div
                     key={`${project.category}-${project.name}-${index}`}
-                    className={styles.workCard}
+                    className={`${styles.workCard} ${
+                      categoryKey === 'websiteDesign' ? styles.workCardWebsite : styles.workCardGraphic
+                    }`}
                     style={{ animationDelay: `${index * 0.05}s` }}
                   >
                     <div className={styles.cardImageWrapper}>

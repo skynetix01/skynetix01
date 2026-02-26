@@ -7,8 +7,8 @@ import { FaEnvelope, FaPhone, FaTwitter, FaLinkedin, FaGithub, FaInstagram } fro
 import Link from 'next/link';
 
 export default function Home() {
-  const emailAddress = process.env.NEXT_PUBLIC_EMAIL_ADDRESS || 'info@skynetix.com';
-  const contactNumber = process.env.NEXT_PUBLIC_CONTACT_NUMBER || '+1 (555) 123-4567';
+  const emailAddress = process.env.NEXT_PUBLIC_EMAIL_ADDRESS || 'contact@skynetix.in';
+  const contactNumber = process.env.NEXT_PUBLIC_CONTACT_NUMBER || '+91 7857082971';
   const linkdin = process.env.NEXT_PUBLIC_LINKDIN;
   const insta = process.env.NEXT_PUBLIC_INSTA;
   const facebook = process.env.NEXT_PUBLIC_FACEBOOK;
@@ -174,14 +174,14 @@ export default function Home() {
                 <FaEnvelope className={styles.contactIcon} />
                 <div>
                   <span className={styles.contactLabel}>Email</span>
-                  <Link href="mailto:contact@skynetix.in" className={styles.contactLink}>{emailAddress}</Link>
+                  <Link href={`mailto:${emailAddress}`} className={styles.contactLink}>{emailAddress}</Link>
                 </div>
               </div>
               <div className={styles.contactDetail}>
                 <FaPhone className={styles.contactIcon} />
                 <div>
                   <span className={styles.contactLabel}>Phone</span>
-                  <Link href="tel:+918603093450" className={styles.contactLink}>{contactNumber}</Link>
+                  <Link href={`tel:${contactNumber.replace(/\s+/g, '')}`} className={styles.contactLink}>{contactNumber}</Link>
                 </div>
               </div>
               <div className={styles.socialLinks}>

@@ -371,16 +371,17 @@
 .servicesFlex {
   display: flex;
   flex-wrap: wrap;
-  gap: 2.5rem;
+  gap: 1.6rem;
   justify-content: center;
-  max-width: 1200px;
+  max-width: 1450px;
   margin: 0 auto;
 }
 
 .serviceCard {
-  flex: 1 1 260px;
+  flex: 0 1 340px;
+  width: 340px;
   background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.85));
-  padding: 2.5rem;
+  padding: 2.2rem 1.6rem;
   border-radius: 25px;
   border: 1px solid #333;
   text-align: center;
@@ -393,6 +394,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 560px;
+  box-sizing: border-box;
 }
 
 .servicesSection.visible .serviceCard {
@@ -448,7 +451,9 @@
 
 .serviceCard h3 {
   color: #c5d3f0;
-  margin-bottom: 1.2rem;
+  margin: 0 0 1.1rem;
+  font-size: 2rem;
+  line-height: 1.2;
   transition: color 0.6s ease, transform 0.6s ease;
 }
 
@@ -488,10 +493,14 @@
 }
 
 .detailText {
-  font-size: 1rem;
+  font-size: 1.15rem;
   color: #e4d7d7;
-  line-height: 1.4;
+  line-height: 1.45;
   transition: color 0.3s ease;
+}
+
+.learnMore {
+  margin-top: auto;
 }
 
 .serviceCard:hover .detailText {
@@ -967,6 +976,24 @@
 
 /* Mobile */
 @media (max-width: 768px) {
+  .servicesFlex {
+    gap: 1rem;
+  }
+
+  .serviceCard {
+    width: min(100%, 360px);
+    min-height: auto;
+    padding: 1.8rem 1.2rem;
+  }
+
+  .serviceCard h3 {
+    font-size: 1.7rem;
+  }
+
+  .detailText {
+    font-size: 1.03rem;
+  }
+
   .appCard {
     width: 100%;
   }

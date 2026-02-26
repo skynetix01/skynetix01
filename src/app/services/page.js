@@ -8,52 +8,46 @@ export const servicesData = [
     id: 'digital-marketing',
     title: 'Digital Marketing Services',
     image: '/assets/service/digi-mar.jpg',
+    price: 'Starting from ₹2,000 / month',
     features: [
-      'Targeted online campaigns',
-      'PPC and email marketing',
-      'Data-driven growth strategies',
+      '10/20 posts social media management packages',
+      'Google Ads and Meta ads campaign setup',
+      'Complete marketing plans for monthly growth',
     ],
   },
   {
     id: 'website-development',
     title: 'Website Development Services',
     image: '/assets/service/web-dev.jpg',
+    price: 'Starting from ₹2,000',
     features: [
-      'Custom, responsive websites',
-      'E-commerce and CMS solutions',
-      'Optimized for performance',
+      'Basic website, business website (4-6 pages)',
+      'Basic e-commerce and advanced e-commerce websites',
+      'Mobile responsive and SEO-ready development',
     ],
   },
   {
     id: 'graphic-designing',
     title: 'Graphic Designing Services',
     image: '/assets/service/graphic-design.jpg',
+    price: 'Starting from ₹150',
     features: [
-      'Branding and logo design',
-      'Social media graphics',
-      'Print and digital assets',
+      'Logo and branding design',
+      'Social media post creatives',
+      'Poster and banner design for campaigns',
     ],
   },
   {
-    id: 'seo-services',
-    title: 'SEO Services',
+    id: 'website-marketing-combo',
+    title: 'Website + Digital Marketing Combo',
     image: '/assets/service/seo.jpg',
+    price: 'Starting from ₹12,000 (first month)',
     features: [
-      'Keyword research and optimization',
-      'On-page and off-page SEO',
-      'Improved search rankings',
+      'All 4 combo packages in one service category',
+      'Website + marketing plans for consistent growth',
+      'Best for new and scaling businesses',
     ],
   },
-  // {
-  //   id: 'social-media-management',
-  //   title: 'Social Media Management',
-  //   image: '/assets/service/smm.jpg',
-  //   features: [
-  //     'Content scheduling and posting',
-  //     'Audience engagement strategies',
-  //     'Analytics and growth tracking',
-  //   ],
-  // },
 ];
 
 export default function Services() {
@@ -93,9 +87,12 @@ export default function Services() {
                       <li key={idx} className={styles.featureItem}>{feature}</li>
                     ))}
                   </ul>
-                  <Link href={`/services/${service.id}`} className={styles.serviceLink}>
-                    Know More
-                  </Link>
+                  <div className={styles.cardFooter}>
+                    <p className={styles.servicePrice}>{service.price}</p>
+                    <Link href={`/services/${service.id}`} className={styles.serviceLink}>
+                      Know More
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}

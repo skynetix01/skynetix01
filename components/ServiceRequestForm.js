@@ -3,13 +3,15 @@
 import { useState } from 'react';
 import styles from '../styles/serviceDetail.module.css';
 
-export default function ServiceRequestForm({ serviceTitle }) {
+export default function ServiceRequestForm({ serviceTitle, planOptions = [] }) {
 
   const [status, setStatus] = useState(null);
-  const pricingOptions = serviceTitle
-  ?.split('•')
-  .map(item => item.trim())
-  .filter(item => item.length > 0);
+  const pricingOptions = planOptions.length
+    ? planOptions
+    : serviceTitle
+        ?.split('•')
+        .map(item => item.trim())
+        .filter(item => item.length > 0);
 
 
   const handleSubmit = async (e) => {
