@@ -64,7 +64,7 @@ export default function Footer() {
           </p>
           <p className={styles.footerText}>
             Instagram:{' '}
-            <a href={instagram} target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
+            <a href="https://www.instagram.com/skynetix.inn" target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
               @skynetix.inn
             </a>
           </p>
