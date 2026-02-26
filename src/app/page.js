@@ -47,20 +47,7 @@ export default function Home() {
                 cutting-edge tools and creative solutions that drive growth, enhance user
                 experiences, and shape the future of technology.
               </p>
-              <div className={styles.aboutHighlights}>
-                <div className={styles.highlightItem}>
-                  <span className={styles.highlightNumber}>5+</span>
-                  <span className={styles.highlightLabel}>Years of Experience</span>
-                </div>
-                <div className={styles.highlightItem}>
-                  <span className={styles.highlightNumber}>50+</span>
-                  <span className={styles.highlightLabel}>Projects Delivered</span>
-                </div>
-                <div className={styles.highlightItem}>
-                  <span className={styles.highlightNumber}>100%</span>
-                  <span className={styles.highlightLabel}>Client Satisfaction</span>
-                </div>
-              </div>
+  
             </div>
           </div>
         </div>

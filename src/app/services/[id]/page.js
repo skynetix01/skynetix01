@@ -1,8 +1,10 @@
-// app/services/[id]/page.jsx
+'use client';
+
 import styles from '../../../../styles/serviceDetail.module.css';
 import Image from 'next/image';
 import ServiceRequestForm from '../../../../components/ServiceRequestForm';
-import { notFound, redirect } from 'next/navigation';
+import { useParams } from 'next/navigation';
+import { useMemo } from 'react';
 
 export const servicesData = {
   'website-development': {
@@ -345,29 +347,28 @@ export const servicesData = {
   },
 };
 
-export default async function ServiceDetail({ params }) {
-  const { id } = await params;
-  const legacyServiceRedirects = {
-    'web-dev': 'website-development',
-    'digi-mar': 'digital-marketing',
-    smm: 'digital-marketing',
-    seo: 'digital-marketing',
-    'graphic-design': 'graphic-designing',
-  };
+export default function ServiceDetail() {
+  const { id } = useParams();
 
-  const resolvedId = legacyServiceRedirects[id] || id;
-  if (legacyServiceRedirects[id]) {
-    redirect(`/services/${resolvedId}`);
-  }
+  const service = useMemo(() => {
+    if (!id) return null;
+    return servicesData[id];
+  }, [id]);
 
-  const service = servicesData[resolvedId];
   if (!service) {
-    notFound();
+    return (
+      <div className={styles.serviceDetailPage}>
+        <p style={{ textAlign: 'center', padding: '4rem' }}>Service not found</p>
+      </div>
+    );
   }
+
   const packageCards = service.packages || service.combos || [];
 
   return (
     <div className={styles.serviceDetailPage}>
+
+      {/* ===== HERO ===== */}
       <section className={styles.focusSection}>
         <div className={styles.focusContent}>
           <h1 className={styles.focusTitle}>{service.title}</h1>
@@ -415,21 +416,19 @@ export default async function ServiceDetail({ params }) {
         </section>
       )}
 
+      {/* ===== EXAMPLES ===== */}
       <section className={styles.examplesSection}>
         <div className={styles.examplesContainer}>
           <h2 className={styles.sectionTitle}>Examples of Our Work</h2>
           <div className={styles.examplesGrid}>
             {service.examples.map((example, index) => (
-              <div key={index} className={styles.exampleItem} style={{ animationDelay: `${index * 0.2}s` }}>
+              <div key={index} className={styles.exampleItem}>
                 <Image
                   src={example.src}
                   alt={example.caption}
                   width={400}
                   height={300}
                   className={styles.exampleImage}
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+F9PQAI8wNPk71F2gAAAABJRU5ErkJggg=="
                 />
                 <p className={styles.exampleCaption}>{example.caption}</p>
               </div>
@@ -438,12 +437,14 @@ export default async function ServiceDetail({ params }) {
         </div>
       </section>
 
+      {/* ===== REQUEST FORM ===== */}
       <section className={styles.requestSection}>
         <div className={styles.requestContainer}>
           <h2 className={styles.sectionTitle}>Request This Service</h2>
           <ServiceRequestForm serviceTitle={service.title} planOptions={service.planOptions} />
         </div>
       </section>
+
     </div>
   );
 }
