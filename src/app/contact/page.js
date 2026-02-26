@@ -6,9 +6,8 @@ import ContactForm from '../../../components/ContactForm';
 export default function Contact() {
   const emailAddress = process.env.NEXT_PUBLIC_EMAIL_ADDRESS || 'contact@skynetix.in';
   const contactNumber = process.env.NEXT_PUBLIC_CONTACT_NUMBER || '+91 7857082971';
-  const linkdin = process.env.NEXT_PUBLIC_LINKDIN;
+  const linkdin = process.env.NEXT_PUBLIC_LINKDIN || 'https://www.linkedin.com/company/skynetix-in/';
   const insta = process.env.NEXT_PUBLIC_INSTA;
-  const facebook = process.env.NEXT_PUBLIC_FACEBOOK;
   const github= process.env.NEXT_PUBLIC_GITHUB;
 
   return (
@@ -56,14 +55,6 @@ export default function Contact() {
             <div className={styles.socialCard}>
               <h3 className={styles.infoTitle}>Connect Online</h3>
               <div className={styles.socialIcons}>
-                <a
-                  href={facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.socialLink}
-                >
-                  <FaTwitter className={styles.socialIcon} />
-                </a>
                 <a
                   href={linkdin}
                   target="_blank"
